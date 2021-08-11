@@ -1,0 +1,25 @@
+2021-08-09 22:48:23 [twisted] CRITICAL: Unhandled error in Deferred:
+2021-08-09 22:48:23 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/home/adam/darknet-analysis/venv/lib/python3.8/site-packages/twisted/internet/defer.py", line 1661, in _inlineCallbacks
+    result = current_context.run(gen.send, result)
+  File "/home/adam/darknet-analysis/venv/lib/python3.8/site-packages/scrapy/crawler.py", line 87, in crawl
+    self.engine = self._create_engine()
+  File "/home/adam/darknet-analysis/venv/lib/python3.8/site-packages/scrapy/crawler.py", line 101, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/home/adam/darknet-analysis/venv/lib/python3.8/site-packages/scrapy/core/engine.py", line 69, in __init__
+    self.downloader = downloader_cls(crawler)
+  File "/home/adam/darknet-analysis/venv/lib/python3.8/site-packages/scrapy/core/downloader/__init__.py", line 83, in __init__
+    self.middleware = DownloaderMiddlewareManager.from_crawler(crawler)
+  File "/home/adam/darknet-analysis/venv/lib/python3.8/site-packages/scrapy/middleware.py", line 53, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/home/adam/darknet-analysis/venv/lib/python3.8/site-packages/scrapy/middleware.py", line 34, in from_settings
+    mwcls = load_object(clspath)
+  File "/home/adam/darknet-analysis/venv/lib/python3.8/site-packages/scrapy/utils/misc.py", line 61, in load_object
+    mod = import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'random_useragent'

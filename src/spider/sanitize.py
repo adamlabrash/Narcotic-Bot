@@ -1,6 +1,6 @@
 import re
 
-from darknet.keywords import drug_list, measurement_list, unit_list, percent_list
+from keywords import drug_list, measurement_list, unit_list, percent_list
 
 def check_drug_type(string):
     string = string.lower()

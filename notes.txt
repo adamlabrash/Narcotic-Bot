@@ -1,0 +1,6 @@
+psql -p 5433 -d darknet -U postgres -h 127.0.0.1
+\c darknet
+\dt
+select * from narcotics limit 10;
+
+export PATH=$PATH:/home/adam/darknet-analysis/src/darknet/

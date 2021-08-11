@@ -1,17 +1,7 @@
-# -*- coding: utf-8 -*-
-
-# Scrapy settings for darknet project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://docs.scrapy.org/en/latest/topics/settings.html
-#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-
 import logging
 from logging.handlers import RotatingFileHandler
-from scrapy.utils.log import configure_logging
+import os
+
 
 BOT_NAME = 'darknet'
 
@@ -58,7 +48,7 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
-    'random_useragent.RandomUserAgentMiddleware': 400,
+    # 'random_useragent.RandomUserAgentMiddleware': 400,
     'darknet.middlewares.ProxyMiddleware': 410,
     # 'darknet.middlewares.SeleniumMiddleware': 430
 }
@@ -96,15 +86,5 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-DB_SETTINGS = {
-    'db': "darknet",
-    'user': 'postgres',
-    'passwd': '834971',
-    'host': '0.0.0.0',
-}
-
-USER_AGENT_LIST = "/home/adam/darknet/user-agents.txt"
-HTTP_PROXY = 'http://127.0.0.1:8123'
-
-LOG_FILE = 'alert_message.txt'
-# LOG_LEVEL = 'WARNING'
+LOG_FILE = 'scrapy_log.txt'
+LOG_LEVEL = 'CRITICAL'

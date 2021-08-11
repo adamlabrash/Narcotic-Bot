@@ -27,4 +27,4 @@ def send_email():
 	s.sendmail(SENDER, RECIPIENT, msg.as_string())
 	s.quit()
 
-send_email
+send_email()
