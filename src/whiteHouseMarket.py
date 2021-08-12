@@ -1,5 +1,6 @@
 import logging
 import os
+import datetime
 from dotenv import load_dotenv, find_dotenv
 
 from tbselenium.tbdriver import TorBrowserDriver
@@ -187,6 +188,8 @@ class whiteHouseMarketSpider():
 
             if self.process_description:
                 item = self.process_description(product, item)
+
+            item['update_at'] = datetime.datetime.now()
 
             print(f"\nSuccessfully extracted info for {item['title']}\n")
 
