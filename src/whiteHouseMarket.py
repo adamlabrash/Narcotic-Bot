@@ -1,54 +1,68 @@
 import logging
+import os
+from dotenv import load_dotenv, find_dotenv
+
 from tbselenium.tbdriver import TorBrowserDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 
-import os
-from dotenv import load_dotenv, find_dotenv
-
 from db import DB
 
 load_dotenv(find_dotenv())
 
-'''
-TODO:
-clean up code
-run db
-comment --> error handling specific exceptions
-headless
-logging
+"""
+This spider extracts narcotic product information from the darknet marketplace 'The White House Market'
 
+Each product is extracted as a dictionary item and inserted into a postgres database
+
+The product item schema is as follows:
+
+str website: the website product is listed on (WhiteHouseMarket for this spider)
+str vendor: the name of the product lister
+str title: the title description of the product listing
+str category: broad category of the drug i.e. 'benzos', 'cannabis', etc
+str sub_category: specific categorization category of the drug i.e. 'pills', 'edibles'
+float price: price of the product in USD
+str shipping_origin: where the product is shipped from (not always the same as origin)
+str ships_to: countries where the product is available
+str inventory_status: in stock, low stock, etc.
+
+TODO:
+comment --> error handling specific exceptions
 readme
-'''
+
+"""
 
 logging.basicConfig(filename="spider_log.txt", level=logging.ERROR)
 
 
 class whiteHouseMarketSpider():
+    """  """
 
-    def __init__(self, process_description=False):
+    def __init__(self):
         logging.info('----- STARTING WHITEHOUSE MARKET SPIDER -----')
         print('----- STARTING WHITEHOUSE MARKET SPIDER -----')
 
         self.username = os.environ.get("WHITE_HOUSE_USER")
         self.url = os.environ.get('WHITE_HOUSE_URL')
         self.password = os.environ.get("WHITE_HOUSE_PW")
-        self.website = "White House Market"
-        self.process_description = process_description
 
-        self.db = DB()
-
-        self.wait_time = 3  # how long the driver will wait for page to load
+        self.website = 'White House Market'
+        self.table_name = 'narcotics'
+        self.process_description = False
 
         tor_browser_path = os.environ.get("TOR_BROWSER_PATH")
 
+        self.db = DB()
+
+        self.wait_time = 3  # default time the driver will wait for page to load
+
         try:
-            # self.driver = TorBrowserDriver(tbb_path=TOR_BROWSER_PATH)
             self.driver = TorBrowserDriver(
-                tbb_path="/home/adam/Desktop/tor-browser_en-US/", tbb_logfile_path="./spider_log_verbose.txt")
-        except Exception as e:
+                tbb_path=tor_browser_path, tbb_logfile_path="./spider_log_verbose.txt")
+        except FileNotFoundError:
             print(
                 'Error starting tor browser, make sure the path is correct in your .env file')
             exit(0)
@@ -58,27 +72,31 @@ class whiteHouseMarketSpider():
         self.parse()
 
     def login(self):
+        """ Logs into website with login information from .env file
+            Terminates program if unsuccessful.
+         """
 
+        # get user input if login info not found in .env file
         if not self.username or not self.password:
             print(
                 f'Login credentials for {self.website} not found in .env file. You can enter them manually:')
             self.username = input(f'Please enter {self.website} username: ')
             self.password = input(f'Please enter {self.website} password: ')
 
+        # the user must solve captcha then enter a character to continue program
         wait_for_user = input(
             "Enter a character when captcha is solved and page is loaded: ")
 
-        # login
         if wait_for_user:
 
-            # pop up
+            # handle pop up if needed
             try:
                 self.driver.find_element_by_xpath(
                     '/html/body/div[3]/div/form/div/input').click()
             except:
                 pass
 
-            # login
+            # Enter login information
             print("Logging in")
             try:
                 self.driver.implicitly_wait(self.wait_time)
@@ -99,22 +117,23 @@ class whiteHouseMarketSpider():
             print('Login successful')
 
     def parse(self):
+        """ Handles iteration through pages for each of the 50 categories of products"""
+
+        # initial request to website
         self.driver.get(self.url)
         self.login()
         self.driver.implicitly_wait(5)
 
+        # iterate through each category
         for selection in range(1, 50):
             print("Processing: " + self.url+f"/welcome?sc={selection}")
             self.driver.get(self.url+f"/welcome?sc={selection}")
 
-            try:
-                number_of_pages = int(self.driver.find_elements_by_xpath(
-                    "/html/body/div/div/div/div[@class='panel panel-info']/div/strong")[0].text.split(' ')[-2])
+            # each category has a number of pages
+            number_of_pages = int(self.driver.find_elements_by_xpath(
+                "/html/body/div/div/div/div[@class='panel panel-info']/div/strong")[0].text.split(' ')[-2])
 
-            except Exception as e:
-                import pdb
-                pdb.set_trace()
-
+            # iterate through each page for the given category
             for page_number in range(number_of_pages+1):
                 self.driver.get(
                     self.url+f"/welcome?sc={selection}&page={page_number}")
@@ -123,19 +142,26 @@ class whiteHouseMarketSpider():
                 except Exception as e:
                     logging.error(
                         f'Error processing {self.url}/welcome?sc={selection}&page={page_number}: {e}')
+
         logging.info('Data extraction completed.')
         print('Data extraction completed. Ending program')
         exit(0)
 
     def process_page(self):
+        """ Processes the products of the current page
+            Each product is represented in a dictionary 'item'
+         """
+
         print('Processing products...')
 
+        # ocassionally the last page is empty, skip it
         if not self.driver.find_elements_by_xpath("/html/body/div[4]/div/div/div/div/div/div"):
             return
 
         for product in self.driver.find_elements_by_xpath("/html/body/div[4]/div/div/div/div/div/div"):
 
             text = product.text.split('\n')
+
             item = {}
             item['website'] = self.website
             item['vendor'] = text[2]
@@ -157,7 +183,6 @@ class whiteHouseMarketSpider():
 
             item['shipping_origin'] = text[12][12:]
             item['ships_to'] = text[13][10:]
-            # in stock, low stock, out of stock
             item['inventory_status'] = text[8]
 
             if self.process_description:
@@ -165,12 +190,19 @@ class whiteHouseMarketSpider():
 
             print(f"\nSuccessfully extracted info for {item['title']}\n")
 
+            # insert item into database
             try:
-                self.db.insert(item)
+                self.db.insert(item, self.table_name)
             except Exception as e:
                 logging.error(f'Error inserting item into database: {e}')
 
     def process_description(self, product, item):
+        """
+
+        :param product: 
+        :param item: 
+
+        """
         print('Processing description page...')
 
         # go to description page
