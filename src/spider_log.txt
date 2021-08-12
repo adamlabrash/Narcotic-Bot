@@ -1,0 +1,54 @@
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=0: Message: The element reference of <div class="col-md-12 alert alert-warning "> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=1: Message: The element reference of <div class="col-md-12 alert alert-warning "> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=2: Message: The element reference of <div class="col-md-12 alert alert-warning "> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=3: Message: The element reference of <div class="col-md-12 alert alert-warning "> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=4: Message: The element reference of <div class="col-md-12 container-border listinglist"> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=5: Message: The element reference of <div class="col-md-12 alert alert-warning "> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=6: Message: Web element reference not seen before: 448b73f0-bbca-4b25-bc4f-19d367bba022
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=7: Message: The element reference of <div class="col-md-12 container-border listinglist"> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=8: Message: The element reference of <div class="col-md-12 alert alert-warning "> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=9: Message: The element reference of <div class="col-md-12 alert alert-warning "> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing description page for (500)S903 xanax 3.5 mg ALP: Message: 
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=10: Message: The element reference of [object String] "ddf35720-f56a-4382-ac77-17128b854f7d" is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=1&page=15: Message: Failed to interpret value as array
+
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=0: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=1: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=2: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=3: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=4: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=5: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=6: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=0: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=1: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=2: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=3: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=4: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=5: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=6: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=0: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=1: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=2: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=3: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=4: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=5: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=6: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=7: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=8: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=9: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=10: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=11: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=12: list index out of range
+ERROR:root:Error processing http://76p5k6gw25l5jpy7ombo2m7gt4zppowbz47sizvlzkigvnyhhc26znyd.onion/welcome?sc=34&page=13: list index out of range
