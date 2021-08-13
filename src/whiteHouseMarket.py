@@ -20,9 +20,10 @@ Each product is extracted as a dictionary item and inserted into a postgres data
 
 The product item schema is as follows:
 
-str website: the website product is listed on (WhiteHouseMarket for this spider)
+str website: the website that the product is listed on (WhiteHouseMarket for this spider)
 str vendor: the name of the product lister
 str title: the title description of the product listing
+str update_at: date that the product listing was extracted (GST)
 str category: broad category of the drug i.e. 'benzos', 'cannabis', etc
 str sub_category: specific categorization category of the drug i.e. 'pills', 'edibles'
 float price: price of the product in USD

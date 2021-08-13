@@ -7,7 +7,7 @@ For now, the project only monitors the White House Market, which is one of the m
 
 
 ---
-## Data Overview
+## Dataset Overview
 
 The data is available in CSV format, and will be updated each month.
 
@@ -29,20 +29,20 @@ Note that the categories are taken directly from the marketplace listings:
 | Weight Loss | Other      | 41 |
 
 
-## Data Schema
+## Relation Schema
 
 The narcotics table is populated with products with the following schema:
 
 | Attribute | Data Properties | Description |
 | ----- |:-----| ------------|
-| id | SERIAL PRIMARY KEY | |
+| id | SERIAL PRIMARY KEY | Unique number identifying the product within the dataset|
 | website | VARCHAR(50) NOT NULL | the website that the product is listed |
 | title | TEXT NOT NULL | description of the product listing |
-| update_at | TIMESTAMP NOT NULL | |
+| update_at | TIMESTAMP NOT NULL | date that the product listing was extracted (GST) |
 | vendor | VARCHAR(100) NOT NULL | the name of the product lister |
 | category | VARCHAR(50) NOT NULL | general classification of the drug i.e. 'benzos' or 'cannabis'|
 | price | FLOAT NOT NULL | cost of the product in USD |
-| sub_category | VARCHAR(50) | |
+| sub_category | VARCHAR(50) | specific classification of the drug i.e. 'pills', 'edibles' |
 | shipping_origin | VARCHAR(50) | where the product is shipped from (not always the true origin) |
 | ships_to | VARCHAR(50) | regions and countries where the product is available |
 | inventory_status | VARCHAR(50) | in stock, low stock, etc. |
@@ -61,7 +61,7 @@ Note that the data is only as accurate as the listings. If a vendor is dishonest
 While this project is completely legal, I do not hold responsibility for how others may use this software.
 
 Future implementations:
-    - Extract products from additional marketplaces
-    - NLP and advanced analysis based on title and descriptions
-    - Web-hosted dashboard
-    - Create seperate dataset of vendors
+* Extract products from additional marketplaces
+* NLP and advanced analysis based on title and descriptions
+* Web-hosted dashboard
+* Seperate dataset of vendors
