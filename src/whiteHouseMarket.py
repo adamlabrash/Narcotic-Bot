@@ -33,7 +33,6 @@ str inventory_status: in stock, low stock, etc.
 TODO:
 comment --> error handling specific exceptions
 readme
-
 """
 
 logging.basicConfig(filename="spider_log.txt", level=logging.ERROR)
