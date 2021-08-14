@@ -18,7 +18,7 @@ This spider extracts narcotic product information from the darknet marketplace '
 
 Each product is extracted as a dictionary item and inserted into a postgres database
 
-The product item schema is as follows:
+The spider extracts the following information for each product:
 
 str website: the website that the product is listed on (WhiteHouseMarket for this spider)
 str vendor: the name of the product lister
