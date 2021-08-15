@@ -2,26 +2,23 @@ Narcotic-Bot
 ==============================
 
 <p align="center">
-  
-<img src="">
-
 <img src="https://img.shields.io/github/license/adamlabrash/Narcotic-Bot" >
 
+<img src="https://camo.githubusercontent.com/3df944c2b99f86f1361df72285183e890f11c52d36dfcd3c2844c6823c823fc1/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d507974686f6e26636f6c6f723d333737364142266c6f676f3d507974686f6e266c6f676f436f6c6f723d464646464646266c6162656c3d">
 
-<img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" >
+<img src="https://camo.githubusercontent.com/0d38b6315bf13f3cae659b1e1c4d966d767a1c107ee017db5b5c8ed77af62e8d/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d4f70656e2b41636365737326636f6c6f723d463638323132266c6f676f3d4f70656e2b416363657373266c6f676f436f6c6f723d464646464646266c6162656c3d">
 
-<img src="https://img.shields.io/pypi/pyversions/selenium">
+<img src="https://camo.githubusercontent.com/9e84c0c211dfc29162133715e87b2e359a9301d7a8b90d0fc15299d417416569/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d4f70656e2b536f757263652b496e697469617469766526636f6c6f723d334441363339266c6f676f3d4f70656e2b536f757263652b496e6974696174697665266c6f676f436f6c6f723d464646464646266c6162656c3d">
 
 <img src="https://camo.githubusercontent.com/f14087986b1e42f4fd93d7f1d266c0b059236febb6f9f052311f60de2c0309da/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d546f722b50726f6a65637426636f6c6f723d374534373938266c6f676f3d546f722b50726f6a656374266c6f676f436f6c6f723d464646464646266c6162656c3d">
 
 <img src="https://camo.githubusercontent.com/4ec342876a40b53ffc6230a41196528690f9f42b1098fd354df46c649720b4c6/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d446f636b657226636f6c6f723d323439364544266c6f676f3d446f636b6572266c6f676f436f6c6f723d464646464646266c6162656c3d">
 
-<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
 </p>
 
 Narcotic-Bot is an open source data extraction system and dataset that monitors narcotic prices on darknet marketplaces. Ultimately this project aims to track the prices and traffic of narcotics over a sustained period of time.
 
-For now, the project only monitors the White House Market, which is one of the more popular illicit marketplaces. The initial dataset has over 33000 product listings, and will increase as more products are listed and more marketplaces are tracked by the project.
+For now, the project monitors the White House Market, which is one of the most popular illicit marketplaces. The initial dataset has over 33000 product listings, and will increase as more products are listed and more marketplaces are tracked by the project.
 
 
 -----
