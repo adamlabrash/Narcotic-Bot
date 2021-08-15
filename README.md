@@ -21,10 +21,9 @@
   
 </p>
 
-Narcotic-Bot is an open source data extraction system and dataset that monitors narcotic prices on darknet marketplaces. Ultimately this project aims to track the prices and traffic of narcotics over a sustained period of time.
+Narcotic_Bot is an open source data extraction system and dataset that monitors narcotic prices on darknet marketplaces. Ultimately this project aims to track the prices and traffic of narcotics over a sustained period of time.
 
 For now, the project only monitors the White House Market, which is one of the more popular illicit marketplaces. The initial dataset has over 33000 product listings, and will increase as more products are listed and more marketplaces are tracked by the project.
-
 
 -----
 
