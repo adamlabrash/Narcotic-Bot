@@ -13,34 +13,27 @@ from db import DB
 
 load_dotenv(find_dotenv())
 
-"""
-This spider extracts narcotic product information from the darknet marketplace 'The White House Market'
-
-Each product is extracted as a dictionary item and inserted into a postgres database
-
-The spider extracts the following information for each product:
-
-str website: the website that the product is listed on (WhiteHouseMarket for this spider)
-str vendor: the name of the product lister
-str title: the title description of the product listing
-str update_at: date that the product listing was extracted (GST)
-str category: broad category of the drug i.e. 'benzos', 'cannabis', etc
-str sub_category: specific categorization category of the drug i.e. 'pills', 'edibles'
-float price: price of the product in USD
-str shipping_origin: where the product is shipped from (not always the same as origin)
-str ships_to: countries where the product is available
-str inventory_status: in stock, low stock, etc.
-
-TODO:
-comment --> error handling specific exceptions
-readme
-"""
-
 logging.basicConfig(filename="spider_log.txt", level=logging.ERROR)
 
 
 class whiteHouseMarketSpider():
-    """  """
+    """
+    This spider extracts narcotic product information from the darknet marketplace 'The White House Market'
+    Each product is extracted as a dictionary item and inserted into a postgres database
+    
+    The spider extracts the following information for each product:
+
+    str website: the website that the product is listed on (WhiteHouseMarket for this spider)
+    str vendor: the name of the product lister
+    str title: the title description of the product listing
+    str update_at: date that the product listing was extracted (GST)
+    str category: broad category of the drug i.e. 'benzos', 'cannabis', etc
+    str sub_category: specific categorization category of the drug i.e. 'pills', 'edibles'
+    float price: price of the product in USD
+    str shipping_origin: where the product is shipped from (not always the same as origin)
+    str ships_to: countries where the product is available
+    str inventory_status: in stock, low stock, etc.
+    """
 
     def __init__(self):
         logging.info('----- STARTING WHITEHOUSE MARKET SPIDER -----')
@@ -159,6 +152,7 @@ class whiteHouseMarketSpider():
         if not self.driver.find_elements_by_xpath("/html/body/div[4]/div/div/div/div/div/div"):
             return
 
+        #extract the information for each product
         for product in self.driver.find_elements_by_xpath("/html/body/div[4]/div/div/div/div/div/div"):
 
             text = product.text.split('\n')
@@ -186,6 +180,7 @@ class whiteHouseMarketSpider():
             item['ships_to'] = text[13][10:]
             item['inventory_status'] = text[8]
 
+            #only process description page if explictly needed
             if self.process_description:
                 item = self.process_description(product, item)
 
@@ -201,9 +196,14 @@ class whiteHouseMarketSpider():
 
     def process_description(self, product, item):
         """
+        Optional method that parses the description page for a product
+        
+        This method adds product_description, views, and measurement_unit to the product dictionary item
+        
+        However, it slows the spider considerably, and will get the account blocked unless the spider is throttled
 
-        :param product: 
-        :param item: 
+        :param product: the product whose description page will be extracted
+        :param item: the dictionary item representing the product
 
         """
         print('Processing description page...')
@@ -214,6 +214,7 @@ class whiteHouseMarketSpider():
             description = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(
                 (By.XPATH, '/html/body/div[4]/div/div/div[4]/div[2]/textarea')))
 
+            #process description if it isn't too long
             if len(description.text) < 998:
                 item['product_description'] = description.text
             else:
@@ -227,7 +228,7 @@ class whiteHouseMarketSpider():
 
         try:
             item['views'] = int(self.driver.find_element_by_xpath(
-                '/html/body/div[4]/div/div/div[3]/div[2]/div/div/div[3]/p[6]').text[7:])  # what if item shows up in multiple categories?
+                '/html/body/div[4]/div/div/div[3]/div[2]/div/div/div[3]/p[6]').text[7:])
             item['measurement_unit'] = self.driver.find_element_by_xpath(
                 '/html/body/div[4]/div/div/div[3]/div[2]/div/div/div[3]/p[4]').text[18:]
 
@@ -235,11 +236,14 @@ class whiteHouseMarketSpider():
                 '/html/body/div[4]/div/div/div[4]/div[2]/textarea').text
 
         except:
-            print("ERROR EXTRACTING DESCRIPTION")
+            
             item['views'] = None
-            item['description'] = None
+            item['product_description'] = None
             item['measurement_unit'] = None
+            logging.error(
+                f'Error processing description page for {item["title"]}: {e}')
 
+        #go back to previous page and resume
         try:
             self.driver.back()
             WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(
@@ -248,6 +252,3 @@ class whiteHouseMarketSpider():
             pass
 
         return item
-
-
-whiteHouseMarketSpider()
