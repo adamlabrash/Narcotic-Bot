@@ -1,3 +1,10 @@
+"""
+Module includes functions that are useful for processing the data from the listings
+Specifically, check_values aims to identify attributes such as purity, unit type, drug origin, and other specific drug classifications
+
+***Messy and still in development***
+"""
+
 import re
 
 from keywords import drug_list, measurement_list, unit_list, percent_list
