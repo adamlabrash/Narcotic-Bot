@@ -31,9 +31,10 @@ class DB:
             exit(0)
 
     def insert(self, item, table):
-        """Inserts given item into 'narcotics' table in postgres database
+        """Inserts given item into given table in postgres database
 
         :param item: dictionary item representing narcotic product
+        :param table: name of the postgres table to insert item
 
         """
         try:
