@@ -43,3 +43,5 @@ node_modules/
 # Sonarqube
 sonar-project.properties
 .scannerwork/
+
+notes.txt
