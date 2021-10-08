@@ -29,7 +29,7 @@ While this project is completely legal, I do not hold responsibility for how oth
 
 ## Dataset Overview
 
-The data is available in CSV format, and will be updated each month.
+The data is available in CSV format, and will be updated periodically.
 
 Note that the categories are taken directly from the marketplace listings:
 
